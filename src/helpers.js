@@ -39,7 +39,7 @@ var makeDate = function( date ) {
 
 
 // Make a GET request and return a promise
-var get = function( requestUrl ) {
+var mlbGet = function( requestUrl ) {
   return new Promise( function( resolve, reject ) {
     http.get( requestUrl, function( response ) {
       
@@ -59,3 +59,10 @@ var get = function( requestUrl ) {
     });
   });
 };
+
+module.exports = {
+  makeUrl: makeUrl,
+  zeros: zeros,
+  makeDate: makeDate,
+  mlbGet: mlbGet
+}
