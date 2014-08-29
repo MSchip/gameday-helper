@@ -29,6 +29,8 @@ var zeros = function( number, type ) {
 
 // Make a date string
 var makeDate = function( date ) {
+  date = date ? date : new Date();
+
   var year = date.getFullYear();
   var month = zeros( date.getMonth(), 'month' );
   var day = zeros( date.getDate() );

@@ -4,10 +4,10 @@
   "description": "Wrapper for MLB Gameday API",
   "main": "index.js",
   "directories": {
-    "test": "tests"
+    "test": "test"
   },
   "scripts": {
-    "test": "mocha tests"
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",
