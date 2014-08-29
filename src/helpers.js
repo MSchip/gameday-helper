@@ -36,3 +36,26 @@ var makeDate = function( date ) {
 
   return dateString;
 };
+
+
+// Make a GET request and return a promise
+var get = function( requestUrl ) {
+  return new Promise( function( resolve, reject ) {
+    http.get( requestUrl, function( response ) {
+      
+      var string = '';
+      
+      response.on( 'data', function( chunk ) {
+        string += chunk;
+       });
+
+      response.on( 'end', function() {
+        resolve( string );
+      });
+
+    }).on( 'error', function( err ) {
+      console.log( 'Error in request to MLB Gameday api: ', err );
+      reject( err );
+    });
+  });
+};
