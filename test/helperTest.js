@@ -1,5 +1,6 @@
 var helper = require( '../src/helpers.js' );
 var expect = require( 'chai' ).expect;
+var nock = require( 'nock' );
 
 describe( "Make Url Helper Function", function() {
 
@@ -61,3 +62,22 @@ describe( "makeDate Helper Function", function() {
   });
 
 });
+
+describe( "mlbGet helper function", function() {
+  beforeEach( function() {
+    var mlbApi = nock( 'http://gd2.mlb.com' )
+      .get( '/components/game/mlb/games' )
+      .reply( 200, 'successful request' );
+  })
+  
+  afterEach( function() {
+    nock.cleanAll();
+  });
+
+  it( "Should return success", function() {
+    helper.mlbGet( 'http://gd2.mlb.com/components/game/mlb/games' )
+      .then( function( response ) {
+        expect( response ).to.equal( 'successful request' );
+      }).done();
+  });
+})
