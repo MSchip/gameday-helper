@@ -1,18 +1,17 @@
 var helpers = require( './helpers.js' );
 var Promise = require( 'bluebird' );
 
-var miniScoreboard = function( date ) {
-  date = date ? date : new Date();
-  var dateString = helpers.makeDate( date ) + 'miniscoreboard.json';
+var daysGames = function( type, date ) {
+  var dateString = helpers.makeDate( date ) + type;
   var gamesUrl = helpers.makeUrl( dateString );
 
   return new Promise( function( resolve, reject ) {
     helpers.mlbGet( gamesUrl )
     .then( function( results ) {
-      resolve( JSON.parse( results ).data.games.game );
+      resolve( JSON.parse( results ).data.games );
     })
     .catch( function( error ) {
-      console.log( 'error in games gameday mini scoreboard request: ', error );
+      console.log( 'error in games gameday request: ', error );
       reject( error )
     })
   });
@@ -20,5 +19,6 @@ var miniScoreboard = function( date ) {
 };
 
 module.exports = {
-  miniScoreboard: miniScoreboard,
-}
+  masterScoreboard: daysGames.bind( null, 'master_scoreboard.json' ),
+  miniScoreboard: daysGames.bind( null, 'miniscoreboard.json' )
+};
