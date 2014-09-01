@@ -5,7 +5,7 @@ var gameData = function( type, gid, date ) {
   var findUrl = helpers.makeUrl( helpers.makeDate( date ) + gid + type );
   
   return new Promise( function( resolve, reject ) {
-    get( findUrl )
+    helpers.mlbGet( findUrl )
     .then( function( results ) {
       resolve( results )
     })
@@ -23,4 +23,4 @@ module.exports = {
   feed: gameData.bind( null, '/game_feed.json' ),
   linescore: gameData.bind( null, '/linescore.json' ),
   plays: gameData.bind( null, '/plays.json' )
-}
+};
