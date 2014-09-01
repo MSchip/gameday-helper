@@ -11,14 +11,34 @@ var daysGames = function( type, date ) {
       resolve( JSON.parse( results ).data.games );
     })
     .catch( function( error ) {
-      console.log( 'error in games gameday request: ', error );
+      console.log( 'error in all games gameday request: ', error );
       reject( error )
     })
   });
 
 };
 
+var listGameIds = function( date ) {
+
+  return new Promise ( function( resolve, reject ) {
+    daysGames( 'miniscoreboard.json', date )
+    .then( function( results ) {
+      gidList = [];
+      results.game.forEach( function( game ) {
+        gidList.push( 'gid_' + game.gameday_link );
+      });
+      resolve( gidList );
+    })
+    .catch( function( error ) {
+      console.log( 'error in list games gameday request: ', error );
+      reject( error );
+    })
+  });
+  
+};
+
 module.exports = {
   masterScoreboard: daysGames.bind( null, 'master_scoreboard.json' ),
-  miniScoreboard: daysGames.bind( null, 'miniscoreboard.json' )
+  miniScoreboard: daysGames.bind( null, 'miniscoreboard.json' ),
+  listGameIds: listGameIds
 };
