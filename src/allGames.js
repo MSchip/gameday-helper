@@ -23,7 +23,7 @@ var listGameIds = function( date ) {
   return new Promise ( function( resolve, reject ) {
     daysGames( 'miniscoreboard.json', date )
     .then( function( results ) {
-      gidList = [];
+      var gidList = [];
       results.game.forEach( function( game ) {
         gidList.push( 'gid_' + game.gameday_link );
       });
@@ -34,7 +34,7 @@ var listGameIds = function( date ) {
       reject( error );
     })
   });
-  
+
 };
 
 module.exports = {
