@@ -1,6 +1,6 @@
 gameday-helper
 ==============
-A node.js wrapper around the MLB Gameday api.
+A node.js wrapper around the MLB Gameday API.
 
 This is meant only for personal use.  As it is not affiliated with MLB, please do not use it for commercial purposes and keep it in line with this MLB copyright statement:
 
@@ -10,7 +10,7 @@ This library provides easy access to MLB provided JSON data for individual games
 
 All methods return promises and use Bluebird under the hood.
 
-##Using the mudule
+##Using the module
 
 Simply require the node module.
 
@@ -51,7 +51,7 @@ Swap 'masterScoreboard' with 'miniScoreboard' for data from MLB mini scoreboard.
 
 All single game methods require the game ID or 'gid' for the requested game.  The gid can be found using the listGameIds method, or from the game objects in both scoreboard methods.
 
-Once again, if no data is supplied, it will default to the current date.
+The date is not required as it is a part of the gid itself.
 
 There are 5 methods related to single games:
 - boxscore - Returns the boxscore for the given gid.
@@ -63,7 +63,7 @@ There are 5 methods related to single games:
 Use example:
 
 ```js
-gamedayHelper.boxscore( 'gid_2014_09_04_detmlb_clemlb_1', new Date('2014-9-4') )
+gamedayHelper.boxscore( 'gid_2014_09_04_detmlb_clemlb_1' )
 .then( function( data ){
   // Object as returned from MLB
 })
