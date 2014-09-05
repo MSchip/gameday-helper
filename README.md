@@ -63,7 +63,7 @@ There are 5 methods related to single games:
 Use example:
 
 ```js
-gamedayHelper.boxscore( 'gid_2014_09_04_detmlb_clemlb_1', new Date('2014-7-20') )
+gamedayHelper.boxscore( 'gid_2014_09_04_detmlb_clemlb_1', new Date('2014-9-4') )
 .then( function( data ){
   // Object as returned from MLB
 })
