@@ -3,11 +3,10 @@ gameday-helper
 A node.js wrapper around the MLB Gameday api.
 
 This is meant only for personal use.  As it is not affiliated with MLB, please do not use it for commercial purposes and keep it in line with this MLB copyright statement:
-```
-The accounts, descriptions, data and presentation in the referring page (the "Materials") are proprietary content of MLB Advanced Media, L.P ("MLBAM").  
+
+*The accounts, descriptions, data and presentation in the referring page (the "Materials") are proprietary content of MLB Advanced Media, L.P ("MLBAM").  
 Only individual, non-commercial, non-bulk use of the Materials is permitted and any other use of the Materials is prohibited without prior written authorization from MLBAM.  
-Authorized users of the Materials are prohibited from using the Materials in any commercial manner other than as expressly authorized by MLBAM.
-```
+Authorized users of the Materials are prohibited from using the Materials in any commercial manner other than as expressly authorized by MLBAM.*
 
 This library provides easy access to MLB provided JSON data for individual games or all games on a given date.
 
@@ -57,11 +56,11 @@ All single game methods require the game ID or 'gid' for the requested game.  Th
 Once again, if no data is supplied, it will default to the current date.
 
 There are 5 methods related to single games:
-  boxscore - Returns the boxscore for the given gid.
-  events - Returns data for every event in the game ( very large ).
-  feed - Returns game feed data.  Lots of MLB media stuff, but some interesting hot/cold zone stuff as well.
-  linescore  - Returns the linescore data for the given gid
-  plays - Returns the plays data for the current half inning of the given gid.
+- boxscore - Returns the boxscore for the given gid.
+- events - Returns data for every event in the game ( very large ).
+- feed - Returns game feed data.  Lots of MLB media stuff, but some interesting hot/cold zone stuff as well.
+- linescore  - Returns the linescore data for the given gid
+- plays - Returns the plays data for the current half inning of the given gid.
 
 Use example:
 
