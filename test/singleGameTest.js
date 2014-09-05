@@ -6,7 +6,7 @@ var singleGame = require( '../src/singleGame.js' );
 var singleGameData = require( '../stubs/singleGameData.js' );
 
 describe( "daysGames Function", function() {
-  var testDate = helpers.makeDate();
+  var testDate = helpers.makeDate( new Date( 2014, 08, 03 ) );
   var gid = 'gid_2014_09_03_detmlb_clemlb_1';
   var path;
   var test;
