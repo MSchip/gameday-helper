@@ -11,11 +11,11 @@ var gameData = function( type, gid ) {
   return new Promise( function( resolve, reject ) {
     helpers.mlbGet( findUrl )
     .then( function( results ) {
-      resolve( results )
+      resolve( results );
     })
     .catch( function( error ) {
       console.log( 'error in gameday request: ', error );
-      reject( error )
+      reject( error );
     })
   });
 

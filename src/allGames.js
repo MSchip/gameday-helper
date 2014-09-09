@@ -12,7 +12,7 @@ var daysGames = function( type, date ) {
     })
     .catch( function( error ) {
       console.log( 'error in all games gameday request: ', error );
-      reject( error )
+      reject( error );
     })
   });
 

@@ -13,7 +13,7 @@ var makeUrl = function( extension ) {
       hostname: 'gd2.mlb.com',
       pathname: 'components/game/mlb/' + extension
     })
-  )
+  );
 
   return created.href;
 };
