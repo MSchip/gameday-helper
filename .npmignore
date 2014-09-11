@@ -1,3 +1,4 @@
 test/
 stubs/
 .travis.yml
+.coveralls.yml
