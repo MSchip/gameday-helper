@@ -1,5 +1,7 @@
 gameday-helper
 ==============
+[![NPM](https://nodei.co/npm/gameday-helper.png?compact=true)](https://nodei.co/npm/gameday-helper/)
+
 A node.js wrapper around the MLB Gameday API.
 
 This is meant only for personal use.  As it is not affiliated with MLB, please do not use it for commercial purposes and keep it in line with this MLB copyright statement:
