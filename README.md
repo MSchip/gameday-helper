@@ -1,6 +1,8 @@
 gameday-helper
 ==============
+[![Build Status](https://travis-ci.org/MSchip/gameday-helper.svg?branch=master)](https://travis-ci.org/MSchip/gameday-helper)
 [![Coverage Status](https://coveralls.io/repos/MSchip/gameday-helper/badge.png?branch=master)](https://coveralls.io/r/MSchip/gameday-helper?branch=master)
+
 [![NPM](https://nodei.co/npm/gameday-helper.png?compact=true)](https://nodei.co/npm/gameday-helper/)
 
 A node.js wrapper around the MLB Gameday API.
