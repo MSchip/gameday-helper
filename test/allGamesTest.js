@@ -33,9 +33,10 @@ describe( "listGameIds Function", function() {
   });
 
   it( "Should respond with gidList for 2015-04-05", function() {
+    var path20150405 = helpers.makeDate(new Date('2015-04-05')) + 'miniscoreboard.json';
     var mlbApi = nock( 'http://gd2.mlb.com' )
       .get( '/components/game/mlb/' +
-        path )
+        path20150405 )
       .reply( 200, miniData20150405.results );
 
     return expect( allGames.listGameIds( new Date('2015-04-05') ) ).to.not.be.rejected;
