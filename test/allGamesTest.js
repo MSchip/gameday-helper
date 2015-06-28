@@ -1,10 +1,15 @@
 var _ = require( 'underscore' );
-var expect = require( 'chai' ).expect;
+var chai = require('chai');
+var chaiPromise = require('chai-as-promised');
+var expect = chai.expect;
 var nock = require( 'nock' );
 var allGames = require( '../src/allGames.js' );
 var helpers = require( '../src/helpers.js' );
 var miniData = require( '../stubs/miniscoreboard.js' );
+var miniData20150405 = require('../stubs/miniscoreboard_2015_04_05');
 var daysGamesData = require( '../stubs/daysGamesData.js' );
+
+chai.use(chaiPromise);
 
 describe( "listGameIds Function", function() {
   var testDate = helpers.makeDate();
@@ -25,6 +30,15 @@ describe( "listGameIds Function", function() {
         expect( gid ).to.equal( miniData.gidList[ index ] );
       })
     })
+  });
+
+  it( "Should respond with gidList for 2015-04-05", function() {
+    var mlbApi = nock( 'http://gd2.mlb.com' )
+      .get( '/components/game/mlb/' +
+        path )
+      .reply( 200, miniData20150405.results );
+
+    return expect( allGames.listGameIds( new Date('2015-04-05') ) ).to.not.be.rejected;
   });
 
 });
