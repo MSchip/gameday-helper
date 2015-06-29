@@ -24,9 +24,14 @@ var listGameIds = function( date ) {
     daysGames( 'miniscoreboard.json', date )
     .then( function( results ) {
       var gidList = [];
-      results.game.forEach( function( game ) {
-        gidList.push( 'gid_' + game.gameday_link );
-      });
+      // handle a list of games or a single game
+      if(Array.isArray(results.game)) {
+        results.game.forEach( function( game ) {
+          gidList.push( 'gid_' + game.gameday_link );
+        });
+      } else {
+        gidList.push( 'gid_' + results.game.gameday_link );
+      }
       resolve( gidList );
     })
     .catch( function( error ) {
